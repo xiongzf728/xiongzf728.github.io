@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>CSS 盒模型</title>
+    <url>/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="我们说盒模型时到底在说啥"><a href="#我们说盒模型时到底在说啥" class="headerlink" title="我们说盒模型时到底在说啥"></a>我们说盒模型时到底在说啥</h1><p>我们常说的盒模型其实有可能是在说一下两者之一：</p>
+<ol>
+<li>块级盒子（Block box）和内联盒子（Inline box）</li>
+<li>标准（W3C）盒模型与替代（IE）盒模型</li>
+</ol>
+<p>这点不明确，可能会让人误解，所以让我们明确下到底是在说『盒子』—— 本质是 CSS 元素：</p>
+<pre><code>盒子 =&gt; 块级盒子（Block box） 和 内联盒子（Inline box） =&gt; CSS 元素
+</code></pre>
+<p>还是在说『盒模型』—— 本质是模型：</p>
+<pre><code>盒模型 =&gt; 标准（W3C）盒模型与替代（IE）盒模型 =&gt; CSS 模型
+</code></pre>
+<h1 id="块级盒子（Block-box）和内联盒子（Inline-box）"><a href="#块级盒子（Block-box）和内联盒子（Inline-box）" class="headerlink" title="块级盒子（Block box）和内联盒子（Inline box）"></a>块级盒子（Block box）和内联盒子（Inline box）</h1><p><strong>块级盒子（Block box）:</strong></p>
+<ul>
+<li>盒子会占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽每个盒子都会换行</li>
+<li>width 和 height 属性可以发挥作用</li>
+<li>内边距（padding），外边距（margin）和边框（border）会将其他元素从当前盒子周围“推开”</li>
+</ul>
+<p>默认情况下，<code>&lt;div&gt;</code>、<code>&lt;p&gt;</code>、<code>&lt;h1&gt;</code> 等都是块级盒子，也说成是块元素</p>
+<p><strong>内联盒子（Inline box）:</strong></p>
+<ul>
+<li>盒子不会产生换行。</li>
+<li> width 和 height 属性不起作用。</li>
+<li>垂直方向的内边距（padding）、外边距（margin）以及边框（border）会被应用但是<strong>不会</strong>把其他处于 inline 状态的盒子推开</li>
+<li>水平方向的内边距（padding）、外边距（margin）以及边框（border）会被应用且<strong>会</strong>把其他处于 inline 状态的盒子推开。</li>
+</ul>
+<p>默认情况下，<code>&lt;a&gt;</code>、<code>&lt;span&gt;</code>、<code>&lt;em&gt;</code>、<code>&lt;strong&gt;</code> 等都是内联盒子，也说成是内联元素、行内元素。</p>
+<p><code>display</code> 属性可以改变盒子的类型，<code>display: block;</code> 为块级盒子，<code>display: inline</code> 为内联盒子</p>
+<h1 id="标准（W3C）盒模型与替代（IE）盒模型"><a href="#标准（W3C）盒模型与替代（IE）盒模型" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型"></a>标准（W3C）盒模型与替代（IE）盒模型</h1><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>CSS中组成一个块级盒子需要:</p>
+<ul>
+<li>Content box: 这个区域是用来显示内容，大小可以通过设置 <code>width</code> 和 <code>height</code></li>
+<li>Padding box: 包围在内容区域外部的空白区域； 大小通过 <code>padding</code> 相关属性设置</li>
+<li>Border box: 边框盒包裹内容和内边距。大小通过 <code>border</code> 相关属性设置</li>
+<li>Margin box: 这是最外面的区域，是盒子和其他元素之间的空白区域。大小通过 <code>margin</code> 相关属性设置</li>
+</ul>
+<p>如下图：</p>
+<p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/box-model.png" alt="盒模型"></p>
+<h2 id="标准（W3C）盒模型与替代（IE）盒模型的区别"><a href="#标准（W3C）盒模型与替代（IE）盒模型的区别" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型的区别"></a>标准（W3C）盒模型与替代（IE）盒模型的区别</h2><p>这里我们看具体的例子：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid blue;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid red;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;a&quot;</span>&gt;</span>这是标准（W3C）盒模型<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;b&quot;</span>&gt;</span>这是 IE 盒模型<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/standardBoxModelVSIEBoxModel.png" alt="标准（W3C）盒模型 VS 替代（IE）盒模型"></p>
+<p>二者的区别在于：<code>width</code> 和 <code>height</code> 的计算内容不同</p>
+<ul>
+<li><p>标准（W3C）盒模型：</p>
+<p>  CSS 设置的 <code>width</code> ( <code>height</code> ) = 内容宽度（高度）</p>
+</li>
+<li><p>替代（IE）盒模型：</p>
+<p>  CSS 设置的 <code>width</code> ( <code>height</code> ) = CSS 设置的 <code>border</code> + <code>padding</code> + 内容宽度（高度）</p>
+<p>  也就是说，在替代模型中设置 <code>width</code> 设置的是整个盒模型的宽度，然后浏览器根据设置的 <code>border</code> 、 <code>padding</code> 来计算出内容宽度：</p>
+<p>  content width = width - border * 2 - padding * 2</p>
+<pre><code>  border 和 padding 左右都有，所以 * 2
+</code></pre>
+</li>
+</ul>
+<h2 id="如何设置两种盒模型？"><a href="#如何设置两种盒模型？" class="headerlink" title="如何设置两种盒模型？"></a>如何设置两种盒模型？</h2><p>通过 <code>box-sizing</code> 属性：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.standard-box-model</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: content-box;        <span class="comment">/* 设置为标准（W3C）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.IE-box-model</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;         <span class="comment">/* 设置为替代（IE）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通常情况下，我们使用的都是标准（W3C）盒模型，这是因为目前大家使用的 HTML 几乎都是下面这样：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">UTF-8</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 HTML5 中，<code>&lt;!DOCTYPE html&gt;</code> 的作用就是启用标准模式，而在这个标准模式下默认都是使用的标准（W3C）盒模型</p>
+<p>如果没有这个声明，浏览器可能会进入其他的模式，比如『<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Quirks_Mode_and_Standards_Mode">怪异模式（Quirks mode）</a>』，大家看名字就知道，最好不要使用这个模式，不知道这算不算是官方吐槽</p>
+]]></content>
+      <categories>
+        <category>前端技术</category>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>盒模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回流重绘</title>
+    <url>/2021/06/10/%E5%9B%9E%E6%B5%81%E9%87%8D%E7%BB%98/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端技术</category>
+        <category>前端性能优化</category>
+      </categories>
+  </entry>
+</search>
