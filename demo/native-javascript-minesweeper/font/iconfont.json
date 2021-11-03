@@ -1,0 +1,30 @@
+{
+  "id": "2464999",
+  "name": "扫雷",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "544532",
+      "name": "help",
+      "font_class": "help",
+      "unicode": "e754",
+      "unicode_decimal": 59220
+    },
+    {
+      "icon_id": "544512",
+      "name": "flag",
+      "font_class": "flag",
+      "unicode": "e740",
+      "unicode_decimal": 59200
+    },
+    {
+      "icon_id": "6940745",
+      "name": "boom",
+      "font_class": "boom",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    }
+  ]
+}
