@@ -19,23 +19,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="我们说盒模型时到底在说啥我们常说的盒模型其实有可能是在说一下两者之一：  块级盒子（Block box）和内联盒子（Inline box） 标准（W3C）盒模型与替代（IE）盒模型  这点不明确，可能会让人误解，所以让我们明确下到底是在说『盒子』—— 本质是 CSS 元素： 盒子 &#x3D;&gt; 块级盒子（Block box） 和 内联盒子（Inline box） &#x3D;&gt; CSS 元素  还是在说">
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;valine&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;valine&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="我们说盒模型时到底在说啥我们常说的盒模型其实有可能是在说一下两者之一：  块级盒子（Block box）和内联盒子（Inline box） 标准（W3C）盒模型与替代（IE）盒模型  这点不明确，可能会让人误解，所以让我们明确下到底是在说『盒子』—— 本质是 CSS 元素： 盒子 &#x3D;&gt; 块级盒子（Block box） 和 内联盒子（Inline box） &#x3D;&gt; CSS 元素  还是在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 盒模型">
 <meta property="og:url" content="http://example.com/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="title">
-<meta property="og:description" content="我们说盒模型时到底在说啥我们常说的盒模型其实有可能是在说一下两者之一：  块级盒子（Block box）和内联盒子（Inline box） 标准（W3C）盒模型与替代（IE）盒模型  这点不明确，可能会让人误解，所以让我们明确下到底是在说『盒子』—— 本质是 CSS 元素： 盒子 &#x3D;&gt; 块级盒子（Block box） 和 内联盒子（Inline box） &#x3D;&gt; CSS 元素  还是在说">
+<meta property="og:description" content="我们说盒模型时到底在说啥我们常说的盒模型其实有可能是在说一下两者之一：  块级盒子（Block box）和内联盒子（Inline box） 标准（W3C）盒模型与替代（IE）盒模型  这点不明确，可能会让人误解，所以让我们明确下到底是在说『盒子』—— 本质是 CSS 元素： 盒子 &#x3D;&gt; 块级盒子（Block box） 和 内联盒子（Inline box） &#x3D;&gt; CSS 元素  还是在">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E4%BA%BA%E8%A1%8C%E9%81%93%E4%B8%8A%E7%9A%84%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%EF%BC%89.jpeg">
 <meta property="og:image" content="http://example.com/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/box-model.png">
 <meta property="og:image" content="http://example.com/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/standardBoxModelVSIEBoxModel.png">
 <meta property="article:published_time" content="2021-06-09T08:00:27.000Z">
-<meta property="article:modified_time" content="2021-06-10T04:01:23.323Z">
+<meta property="article:modified_time" content="2021-11-03T07:32:51.495Z">
 <meta property="article:author" content="author">
 <meta property="article:tag" content="CSS">
 <meta property="article:tag" content="盒模型">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/box-model.png">
+<meta name="twitter:image" content="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E4%BA%BA%E8%A1%8C%E9%81%93%E4%B8%8A%E7%9A%84%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%EF%BC%89.jpeg">
 
 
 <link rel="canonical" href="http://example.com/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/">
@@ -165,19 +166,19 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -247,7 +248,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-10 12:01:23" itemprop="dateModified" datetime="2021-06-10T12:01:23+08:00">2021-06-10</time>
+        <time title="修改时间：2021-11-03 15:32:51" itemprop="dateModified" datetime="2021-11-03T15:32:51+08:00">2021-11-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -264,6 +265,14 @@
     </span>
 
   
+    <span id="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="CSS 盒模型" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
 </div>
 
         </div>
@@ -273,7 +282,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="我们说盒模型时到底在说啥"><a href="#我们说盒模型时到底在说啥" class="headerlink" title="我们说盒模型时到底在说啥"></a>我们说盒模型时到底在说啥</h1><p>我们常说的盒模型其实有可能是在说一下两者之一：</p>
+        <p><img src="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E4%BA%BA%E8%A1%8C%E9%81%93%E4%B8%8A%E7%9A%84%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%EF%BC%89.jpeg" alt="人行道上的共享单车"></p>
+<h1 id="我们说盒模型时到底在说啥"><a href="#我们说盒模型时到底在说啥" class="headerlink" title="我们说盒模型时到底在说啥"></a>我们说盒模型时到底在说啥</h1><p>我们常说的盒模型其实有可能是在说一下两者之一：</p>
 <ol>
 <li>块级盒子（Block box）和内联盒子（Inline box）</li>
 <li>标准（W3C）盒模型与替代（IE）盒模型</li>
@@ -284,6 +294,8 @@
 <p>还是在说『盒模型』—— 本质是模型：</p>
 <pre><code>盒模型 =&gt; 标准（W3C）盒模型与替代（IE）盒模型 =&gt; CSS 模型
 </code></pre>
+<span id="more"></span>
+
 <h1 id="块级盒子（Block-box）和内联盒子（Inline-box）"><a href="#块级盒子（Block-box）和内联盒子（Inline-box）" class="headerlink" title="块级盒子（Block box）和内联盒子（Inline box）"></a>块级盒子（Block box）和内联盒子（Inline box）</h1><p><strong>块级盒子（Block box）:</strong></p>
 <ul>
 <li>盒子会占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽每个盒子都会换行</li>
@@ -294,13 +306,13 @@
 <p><strong>内联盒子（Inline box）:</strong></p>
 <ul>
 <li>盒子不会产生换行。</li>
-<li> width 和 height 属性不起作用。</li>
+<li>width 和 height 属性不起作用。</li>
 <li>垂直方向的内边距（padding）、外边距（margin）以及边框（border）会被应用但是<strong>不会</strong>把其他处于 inline 状态的盒子推开</li>
 <li>水平方向的内边距（padding）、外边距（margin）以及边框（border）会被应用且<strong>会</strong>把其他处于 inline 状态的盒子推开。</li>
 </ul>
 <p>默认情况下，<code>&lt;a&gt;</code>、<code>&lt;span&gt;</code>、<code>&lt;em&gt;</code>、<code>&lt;strong&gt;</code> 等都是内联盒子，也说成是内联元素、行内元素。</p>
 <p><code>display</code> 属性可以改变盒子的类型，<code>display: block;</code> 为块级盒子，<code>display: inline</code> 为内联盒子</p>
-<h1 id="标准（W3C）盒模型与替代（IE）盒模型"><a href="#标准（W3C）盒模型与替代（IE）盒模型" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型"></a>标准（W3C）盒模型与替代（IE）盒模型</h1><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>CSS中组成一个块级盒子需要:</p>
+<h1 id="标准（W3C）盒模型与替代（IE）盒模型"><a href="#标准（W3C）盒模型与替代（IE）盒模型" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型"></a>标准（W3C）盒模型与替代（IE）盒模型</h1><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>CSS 中组成一个块级盒子需要:</p>
 <ul>
 <li>Content box: 这个区域是用来显示内容，大小可以通过设置 <code>width</code> 和 <code>height</code></li>
 <li>Padding box: 包围在内容区域外部的空白区域； 大小通过 <code>padding</code> 相关属性设置</li>
@@ -310,30 +322,29 @@
 <p>如下图：</p>
 <p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/box-model.png" alt="盒模型"></p>
 <h2 id="标准（W3C）盒模型与替代（IE）盒模型的区别"><a href="#标准（W3C）盒模型与替代（IE）盒模型的区别" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型的区别"></a>标准（W3C）盒模型与替代（IE）盒模型的区别</h2><p>这里我们看具体的例子：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid blue;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid red;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid blue;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid red;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;a&quot;</span>&gt;</span>这是标准（W3C）盒模型<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;b&quot;</span>&gt;</span>这是 IE 盒模型<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 
 <p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/standardBoxModelVSIEBoxModel.png" alt="标准（W3C）盒模型 VS 替代（IE）盒模型"></p>
 <p>二者的区别在于：<code>width</code> 和 <code>height</code> 的计算内容不同</p>
 <ul>
 <li><p>标准（W3C）盒模型：</p>
-<p>  CSS 设置的 <code>width</code> ( <code>height</code> ) = 内容宽度（高度）</p>
+<p>CSS 设置的 <code>width</code> ( <code>height</code> ) = 内容宽度（高度）</p>
 </li>
 <li><p>替代（IE）盒模型：</p>
-<p>  CSS 设置的 <code>width</code> ( <code>height</code> ) = CSS 设置的 <code>border</code> + <code>padding</code> + 内容宽度（高度）</p>
-<p>  也就是说，在替代模型中设置 <code>width</code> 设置的是整个盒模型的宽度，然后浏览器根据设置的 <code>border</code> 、 <code>padding</code> 来计算出内容宽度：</p>
-<p>  content width = width - border * 2 - padding * 2</p>
+<p>CSS 设置的 <code>width</code> ( <code>height</code> ) = CSS 设置的 <code>border</code> + <code>padding</code> + 内容宽度（高度）</p>
+<p>也就是说，在替代模型中设置 <code>width</code> 设置的是整个盒模型的宽度，然后浏览器根据设置的 <code>border</code> 、 <code>padding</code> 来计算出内容宽度：</p>
+<p>content width = width - border _ 2 - padding _ 2</p>
 <pre><code>  border 和 padding 左右都有，所以 * 2
 </code></pre>
 </li>
 </ul>
 <h2 id="如何设置两种盒模型？"><a href="#如何设置两种盒模型？" class="headerlink" title="如何设置两种盒模型？"></a>如何设置两种盒模型？</h2><p>通过 <code>box-sizing</code> 属性：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.standard-box-model</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: content-box;        <span class="comment">/* 设置为标准（W3C）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.IE-box-model</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;         <span class="comment">/* 设置为替代（IE）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.standard-box-model</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box; <span class="comment">/* 设置为标准（W3C）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.IE-box-model</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box; <span class="comment">/* 设置为替代（IE）盒模型 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通常情况下，我们使用的都是标准（W3C）盒模型，这是因为目前大家使用的 HTML 几乎都是下面这样：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">UTF-8</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在 HTML5 中，<code>&lt;!DOCTYPE html&gt;</code> 的作用就是启用标准模式，而在这个标准模式下默认都是使用的标准（W3C）盒模型</p>
 <p>如果没有这个声明，浏览器可能会进入其他的模式，比如『<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Quirks_Mode_and_Standards_Mode">怪异模式（Quirks mode）</a>』，大家看名字就知道，最好不要使用这个模式，不知道这算不算是官方吐槽</p>
@@ -370,6 +381,7 @@
 
 
 
+    <div class="comments" id="valine-comments"></div>
 </div>
   </main>
 
@@ -408,6 +420,18 @@
 
 
 
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"zpj1AJEsz0UVaxLdaFvHGDy7-gzGzoHsz","appKey":"WAI80XL83faXqjMiVNQT9zUT","serverURLs":null,"placeholder":"输入你的评论\n昵称为必填项目，输入QQ号可以直接获取用户名和头像，并且省去了填写邮箱的麻烦！\n虽然email不是必选，但是填写了email可以收到推送通知哦！","avatar":"","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"enableQQ":true,"requiredFields":["nick"]}, {
+      el: '#valine-comments',
+      path: "/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/",
+      serverURLs: "https://zpj1ajes.api.lncldglobal.com"
+    }));
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

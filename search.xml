@@ -3,7 +3,8 @@
   <entry>
     <title>CSS 盒模型</title>
     <url>/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="我们说盒模型时到底在说啥"><a href="#我们说盒模型时到底在说啥" class="headerlink" title="我们说盒模型时到底在说啥"></a>我们说盒模型时到底在说啥</h1><p>我们常说的盒模型其实有可能是在说一下两者之一：</p>
+    <content><![CDATA[<p><img src="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E4%BA%BA%E8%A1%8C%E9%81%93%E4%B8%8A%E7%9A%84%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%EF%BC%89.jpeg" alt="人行道上的共享单车"></p>
+<h1 id="我们说盒模型时到底在说啥"><a href="#我们说盒模型时到底在说啥" class="headerlink" title="我们说盒模型时到底在说啥"></a>我们说盒模型时到底在说啥</h1><p>我们常说的盒模型其实有可能是在说一下两者之一：</p>
 <ol>
 <li>块级盒子（Block box）和内联盒子（Inline box）</li>
 <li>标准（W3C）盒模型与替代（IE）盒模型</li>
@@ -14,6 +15,8 @@
 <p>还是在说『盒模型』—— 本质是模型：</p>
 <pre><code>盒模型 =&gt; 标准（W3C）盒模型与替代（IE）盒模型 =&gt; CSS 模型
 </code></pre>
+<span id="more"></span>
+
 <h1 id="块级盒子（Block-box）和内联盒子（Inline-box）"><a href="#块级盒子（Block-box）和内联盒子（Inline-box）" class="headerlink" title="块级盒子（Block box）和内联盒子（Inline box）"></a>块级盒子（Block box）和内联盒子（Inline box）</h1><p><strong>块级盒子（Block box）:</strong></p>
 <ul>
 <li>盒子会占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽每个盒子都会换行</li>
@@ -24,13 +27,13 @@
 <p><strong>内联盒子（Inline box）:</strong></p>
 <ul>
 <li>盒子不会产生换行。</li>
-<li> width 和 height 属性不起作用。</li>
+<li>width 和 height 属性不起作用。</li>
 <li>垂直方向的内边距（padding）、外边距（margin）以及边框（border）会被应用但是<strong>不会</strong>把其他处于 inline 状态的盒子推开</li>
 <li>水平方向的内边距（padding）、外边距（margin）以及边框（border）会被应用且<strong>会</strong>把其他处于 inline 状态的盒子推开。</li>
 </ul>
 <p>默认情况下，<code>&lt;a&gt;</code>、<code>&lt;span&gt;</code>、<code>&lt;em&gt;</code>、<code>&lt;strong&gt;</code> 等都是内联盒子，也说成是内联元素、行内元素。</p>
 <p><code>display</code> 属性可以改变盒子的类型，<code>display: block;</code> 为块级盒子，<code>display: inline</code> 为内联盒子</p>
-<h1 id="标准（W3C）盒模型与替代（IE）盒模型"><a href="#标准（W3C）盒模型与替代（IE）盒模型" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型"></a>标准（W3C）盒模型与替代（IE）盒模型</h1><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>CSS中组成一个块级盒子需要:</p>
+<h1 id="标准（W3C）盒模型与替代（IE）盒模型"><a href="#标准（W3C）盒模型与替代（IE）盒模型" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型"></a>标准（W3C）盒模型与替代（IE）盒模型</h1><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>CSS 中组成一个块级盒子需要:</p>
 <ul>
 <li>Content box: 这个区域是用来显示内容，大小可以通过设置 <code>width</code> 和 <code>height</code></li>
 <li>Padding box: 包围在内容区域外部的空白区域； 大小通过 <code>padding</code> 相关属性设置</li>
@@ -40,30 +43,29 @@
 <p>如下图：</p>
 <p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/box-model.png" alt="盒模型"></p>
 <h2 id="标准（W3C）盒模型与替代（IE）盒模型的区别"><a href="#标准（W3C）盒模型与替代（IE）盒模型的区别" class="headerlink" title="标准（W3C）盒模型与替代（IE）盒模型的区别"></a>标准（W3C）盒模型与替代（IE）盒模型的区别</h2><p>这里我们看具体的例子：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid blue;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid red;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid blue;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.b</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid red;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;a&quot;</span>&gt;</span>这是标准（W3C）盒模型<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;b&quot;</span>&gt;</span>这是 IE 盒模型<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 
 <p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/standardBoxModelVSIEBoxModel.png" alt="标准（W3C）盒模型 VS 替代（IE）盒模型"></p>
 <p>二者的区别在于：<code>width</code> 和 <code>height</code> 的计算内容不同</p>
 <ul>
 <li><p>标准（W3C）盒模型：</p>
-<p>  CSS 设置的 <code>width</code> ( <code>height</code> ) = 内容宽度（高度）</p>
+<p>CSS 设置的 <code>width</code> ( <code>height</code> ) = 内容宽度（高度）</p>
 </li>
 <li><p>替代（IE）盒模型：</p>
-<p>  CSS 设置的 <code>width</code> ( <code>height</code> ) = CSS 设置的 <code>border</code> + <code>padding</code> + 内容宽度（高度）</p>
-<p>  也就是说，在替代模型中设置 <code>width</code> 设置的是整个盒模型的宽度，然后浏览器根据设置的 <code>border</code> 、 <code>padding</code> 来计算出内容宽度：</p>
-<p>  content width = width - border * 2 - padding * 2</p>
+<p>CSS 设置的 <code>width</code> ( <code>height</code> ) = CSS 设置的 <code>border</code> + <code>padding</code> + 内容宽度（高度）</p>
+<p>也就是说，在替代模型中设置 <code>width</code> 设置的是整个盒模型的宽度，然后浏览器根据设置的 <code>border</code> 、 <code>padding</code> 来计算出内容宽度：</p>
+<p>content width = width - border _ 2 - padding _ 2</p>
 <pre><code>  border 和 padding 左右都有，所以 * 2
 </code></pre>
 </li>
 </ul>
 <h2 id="如何设置两种盒模型？"><a href="#如何设置两种盒模型？" class="headerlink" title="如何设置两种盒模型？"></a>如何设置两种盒模型？</h2><p>通过 <code>box-sizing</code> 属性：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.standard-box-model</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: content-box;        <span class="comment">/* 设置为标准（W3C）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.IE-box-model</span> &#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;         <span class="comment">/* 设置为替代（IE）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.standard-box-model</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box; <span class="comment">/* 设置为标准（W3C）盒模型 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.IE-box-model</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box; <span class="comment">/* 设置为替代（IE）盒模型 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通常情况下，我们使用的都是标准（W3C）盒模型，这是因为目前大家使用的 HTML 几乎都是下面这样：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">UTF-8</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在 HTML5 中，<code>&lt;!DOCTYPE html&gt;</code> 的作用就是启用标准模式，而在这个标准模式下默认都是使用的标准（W3C）盒模型</p>
 <p>如果没有这个声明，浏览器可能会进入其他的模式，比如『<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Quirks_Mode_and_Standards_Mode">怪异模式（Quirks mode）</a>』，大家看名字就知道，最好不要使用这个模式，不知道这算不算是官方吐槽</p>
@@ -85,5 +87,64 @@
         <category>前端技术</category>
         <category>前端性能优化</category>
       </categories>
+  </entry>
+  <entry>
+    <title>cookie session localStorage sessionStorage</title>
+    <url>/2021/07/03/cookie-session-localStorage-sessionStorage/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <tags>
+        <tag>前端技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器</title>
+    <url>/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/</url>
+    <content><![CDATA[<p><img src="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E8%B5%B7%E9%A3%9E%E7%9A%84%E9%A3%9E%E6%9C%BA%EF%BC%89.jpeg" alt="起飞的飞机"></p>
+<blockquote>
+<p>- 公司项目用公司的源，自己项目用 npm 源，公司项目和自己项目之间反复横跳</p>
+<p>- <code>npm install</code> 卡死…各个镜像源之间反复横跳</p>
+<p>- …</p>
+<p>总有一个需要在各个源之间反复横跳的场景在等着你</p>
+</blockquote>
+<h1 id="不用-nrm-怎么换源？"><a href="#不用-nrm-怎么换源？" class="headerlink" title="不用 nrm 怎么换源？"></a>不用 <a href="https://www.npmjs.com/package/nrm">nrm</a> 怎么换源？</h1><h2 id="临时换源"><a href="#临时换源" class="headerlink" title="临时换源"></a>临时换源</h2><p>单独针对某一次安装使用指定源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 指定淘宝镜像安装</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --registry=https://registry.npm.taobao.org</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="永久换源"><a href="#永久换源" class="headerlink" title="永久换源"></a>永久换源</h2><p>全局永久设置使用指定源，这样就不用每次都像上面一样通过 <code>--registry</code> 指定源来换源了。当然，如果要切换别的源，也是同样的操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 全局永久指定淘宝镜像安装</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>换源后可以下面这样查看当前源，来检查是否换源成功</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config get registry</span></span><br><span class="line"></span><br><span class="line">// https://registry.npm.taobao.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="有了-nrm-之后"><a href="#有了-nrm-之后" class="headerlink" title="有了 nrm 之后"></a>有了 nrm 之后</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install -g nrm</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如有遇到安装失败的情况，建议检查下<a href="https://nodejs.org/"> node </a> 和<a href="https://github.com/npm/cli"> npm </a> 的版本</p>
+<h2 id="查看可选源"><a href="#查看可选源" class="headerlink" title="查看可选源"></a>查看可选源</h2><p>nrm 内置了几个常用的源，可以直接通过 <code>nrm ls</code> 来查看所有内置源和自己添加的源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm ls</span></span><br><span class="line"></span><br><span class="line">* npm -------- https://registry.npmjs.org/</span><br><span class="line">  yarn ------- https://registry.yarnpkg.com/</span><br><span class="line">  cnpm ------- http://r.cnpmjs.org/</span><br><span class="line">  taobao ----- https://registry.npm.taobao.org/</span><br><span class="line">  nj --------- https://registry.nodejitsu.com/</span><br><span class="line">  npmMirror -- https://skimdb.npmjs.com/registry/</span><br><span class="line">  edunpm ----- http://registry.enpmjs.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>*</code> 表示当前在使用的源，横杠前面的是源的别名</p>
+<h2 id="切换源"><a href="#切换源" class="headerlink" title="切换源"></a>切换源</h2><p>使用 <code>$ nrm use 『别名』</code> 来切换到指定源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 切换到淘宝镜像源</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm use taobao</span></span><br><span class="line"></span><br><span class="line">    Registry has been set to: https://registry.npm.taobao.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="增加源"><a href="#增加源" class="headerlink" title="增加源"></a>增加源</h2><p>我们也可以根据自己的需要通过 <code>$ nrm add 别名 地址</code> 来添加自己的源，比如公司的私有源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm add xxx http://registry.npm.xxx.org/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除源"><a href="#删除源" class="headerlink" title="删除源"></a>删除源</h2><p>用 <code>$ nrm del 别名</code> 来删除不需要的源</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm del &lt;registry&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试源"><a href="#测试源" class="headerlink" title="测试源"></a>测试源</h2><p>有时候我们安装包比较慢，想换到个速度比较快的源，就可以这样测试一下，直接测出所有源的速度，非常好用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm <span class="built_in">test</span></span></span><br><span class="line"></span><br><span class="line">* npm ---- 2627ms</span><br><span class="line">  yarn --- 1758ms</span><br><span class="line">  cnpm --- 604ms</span><br><span class="line">  taobao - 94ms</span><br><span class="line">  nj ----- 10229ms</span><br><span class="line">  npmMirror  13575ms</span><br><span class="line">  edunpm - 588ms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="如果是-yarn"><a href="#如果是-yarn" class="headerlink" title="如果是 yarn"></a>如果是 <a href="https://yarnpkg.com/">yarn</a></h2><p>依然有 <a href="https://yarnpkg.com/package/yrm">yrm</a> 来帮忙管理源，使用方法跟 nrm 一样</p>
+]]></content>
+      <categories>
+        <category>前端技术</category>
+        <category>npm</category>
+      </categories>
+      <tags>
+        <tag>nrm</tag>
+        <tag>npm</tag>
+      </tags>
   </entry>
 </search>

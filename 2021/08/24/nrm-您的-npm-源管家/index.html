@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;valine&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;valine&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="- 公司项目用公司的源，自己项目用 npm 源，公司项目和自己项目之间反复横跳 - npm install 卡死…各个镜像源之间反复横跳 - … 总有一个需要在各个源之间反复横跳的场景在等着你  不用 nrm 怎么换源？临时换源单独针对某一次安装使用指定源 12345&#x2F;&#x2F; 指定淘宝镜像安装$ npm install --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器">
+<meta property="og:url" content="http://example.com/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/index.html">
+<meta property="og:site_name" content="title">
+<meta property="og:description" content="- 公司项目用公司的源，自己项目用 npm 源，公司项目和自己项目之间反复横跳 - npm install 卡死…各个镜像源之间反复横跳 - … 总有一个需要在各个源之间反复横跳的场景在等着你  不用 nrm 怎么换源？临时换源单独针对某一次安装使用指定源 12345&#x2F;&#x2F; 指定淘宝镜像安装$ npm install --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E8%B5%B7%E9%A3%9E%E7%9A%84%E9%A3%9E%E6%9C%BA%EF%BC%89.jpeg">
+<meta property="article:published_time" content="2021-08-24T07:31:07.000Z">
+<meta property="article:modified_time" content="2021-11-03T07:33:10.933Z">
+<meta property="article:author" content="author">
+<meta property="article:tag" content="nrm">
+<meta property="article:tag" content="npm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E8%B5%B7%E9%A3%9E%E7%9A%84%E9%A3%9E%E6%9C%BA%EF%BC%89.jpeg">
+
+
+<link rel="canonical" href="http://example.com/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;08&#x2F;24&#x2F;nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;08&#x2F;24&#x2F;nrm-您的-npm-源管家&#x2F;&quot;,&quot;title&quot;:&quot;npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器 | title</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">title</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">subtitle</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E7%94%A8-nrm-%E6%80%8E%E4%B9%88%E6%8D%A2%E6%BA%90%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">不用 nrm 怎么换源？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B4%E6%97%B6%E6%8D%A2%E6%BA%90"><span class="nav-number">1.1.</span> <span class="nav-text">临时换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B8%E4%B9%85%E6%8D%A2%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">永久换源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E4%BA%86-nrm-%E4%B9%8B%E5%90%8E"><span class="nav-number">2.</span> <span class="nav-text">有了 nrm 之后</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%8F%AF%E9%80%89%E6%BA%90"><span class="nav-number">2.2.</span> <span class="nav-text">查看可选源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%BA%90"><span class="nav-number">2.3.</span> <span class="nav-text">切换源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%BA%90"><span class="nav-number">2.4.</span> <span class="nav-text">增加源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%BA%90"><span class="nav-number">2.5.</span> <span class="nav-text">删除源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%BA%90"><span class="nav-number">2.6.</span> <span class="nav-text">测试源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%98%AF-yarn"><span class="nav-number">2.7.</span> <span class="nav-text">如果是 yarn</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">author</p>
+  <div class="site-description" itemprop="description">description</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="author">
+      <meta itemprop="description" content="description">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="title">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-24 15:31:07" itemprop="dateCreated datePublished" datetime="2021-08-24T15:31:07+08:00">2021-08-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-03 15:33:10" itemprop="dateModified" datetime="2021-11-03T15:33:10+08:00">2021-11-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">前端技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/npm/" itemprop="url" rel="index"><span itemprop="name">npm</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/" class="post-meta-item leancloud_visitors" data-flag-title="npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E8%B5%B7%E9%A3%9E%E7%9A%84%E9%A3%9E%E6%9C%BA%EF%BC%89.jpeg" alt="起飞的飞机"></p>
+<blockquote>
+<p>- 公司项目用公司的源，自己项目用 npm 源，公司项目和自己项目之间反复横跳</p>
+<p>- <code>npm install</code> 卡死…各个镜像源之间反复横跳</p>
+<p>- …</p>
+<p>总有一个需要在各个源之间反复横跳的场景在等着你</p>
+</blockquote>
+<h1 id="不用-nrm-怎么换源？"><a href="#不用-nrm-怎么换源？" class="headerlink" title="不用 nrm 怎么换源？"></a>不用 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/nrm">nrm</a> 怎么换源？</h1><h2 id="临时换源"><a href="#临时换源" class="headerlink" title="临时换源"></a>临时换源</h2><p>单独针对某一次安装使用指定源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 指定淘宝镜像安装</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install --registry=https://registry.npm.taobao.org</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="永久换源"><a href="#永久换源" class="headerlink" title="永久换源"></a>永久换源</h2><p>全局永久设置使用指定源，这样就不用每次都像上面一样通过 <code>--registry</code> 指定源来换源了。当然，如果要切换别的源，也是同样的操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 全局永久指定淘宝镜像安装</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>换源后可以下面这样查看当前源，来检查是否换源成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config get registry</span></span><br><span class="line"></span><br><span class="line">// https://registry.npm.taobao.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="有了-nrm-之后"><a href="#有了-nrm-之后" class="headerlink" title="有了 nrm 之后"></a>有了 nrm 之后</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install -g nrm</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如有遇到安装失败的情况，建议检查下<a target="_blank" rel="noopener" href="https://nodejs.org/"> node </a> 和<a target="_blank" rel="noopener" href="https://github.com/npm/cli"> npm </a> 的版本</p>
+<h2 id="查看可选源"><a href="#查看可选源" class="headerlink" title="查看可选源"></a>查看可选源</h2><p>nrm 内置了几个常用的源，可以直接通过 <code>nrm ls</code> 来查看所有内置源和自己添加的源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm ls</span></span><br><span class="line"></span><br><span class="line">* npm -------- https://registry.npmjs.org/</span><br><span class="line">  yarn ------- https://registry.yarnpkg.com/</span><br><span class="line">  cnpm ------- http://r.cnpmjs.org/</span><br><span class="line">  taobao ----- https://registry.npm.taobao.org/</span><br><span class="line">  nj --------- https://registry.nodejitsu.com/</span><br><span class="line">  npmMirror -- https://skimdb.npmjs.com/registry/</span><br><span class="line">  edunpm ----- http://registry.enpmjs.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>*</code> 表示当前在使用的源，横杠前面的是源的别名</p>
+<h2 id="切换源"><a href="#切换源" class="headerlink" title="切换源"></a>切换源</h2><p>使用 <code>$ nrm use 『别名』</code> 来切换到指定源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 切换到淘宝镜像源</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm use taobao</span></span><br><span class="line"></span><br><span class="line">    Registry has been set to: https://registry.npm.taobao.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="增加源"><a href="#增加源" class="headerlink" title="增加源"></a>增加源</h2><p>我们也可以根据自己的需要通过 <code>$ nrm add 别名 地址</code> 来添加自己的源，比如公司的私有源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm add xxx http://registry.npm.xxx.org/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="删除源"><a href="#删除源" class="headerlink" title="删除源"></a>删除源</h2><p>用 <code>$ nrm del 别名</code> 来删除不需要的源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm del &lt;registry&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试源"><a href="#测试源" class="headerlink" title="测试源"></a>测试源</h2><p>有时候我们安装包比较慢，想换到个速度比较快的源，就可以这样测试一下，直接测出所有源的速度，非常好用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nrm <span class="built_in">test</span></span></span><br><span class="line"></span><br><span class="line">* npm ---- 2627ms</span><br><span class="line">  yarn --- 1758ms</span><br><span class="line">  cnpm --- 604ms</span><br><span class="line">  taobao - 94ms</span><br><span class="line">  nj ----- 10229ms</span><br><span class="line">  npmMirror  13575ms</span><br><span class="line">  edunpm - 588ms</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="如果是-yarn"><a href="#如果是-yarn" class="headerlink" title="如果是 yarn"></a>如果是 <a target="_blank" rel="noopener" href="https://yarnpkg.com/">yarn</a></h2><p>依然有 <a target="_blank" rel="noopener" href="https://yarnpkg.com/package/yrm">yrm</a> 来帮忙管理源，使用方法跟 nrm 一样</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/nrm/" rel="tag"># nrm</a>
+              <a href="/tags/npm/" rel="tag"># npm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/03/cookie-session-localStorage-sessionStorage/" rel="prev" title="cookie session localStorage sessionStorage">
+                  <i class="fa fa-chevron-left"></i> cookie session localStorage sessionStorage
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="valine-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"zpj1AJEsz0UVaxLdaFvHGDy7-gzGzoHsz","appKey":"WAI80XL83faXqjMiVNQT9zUT","serverURLs":null,"placeholder":"输入你的评论\n昵称为必填项目，输入QQ号可以直接获取用户名和头像，并且省去了填写邮箱的麻烦！\n虽然email不是必选，但是填写了email可以收到推送通知哦！","avatar":"","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"enableQQ":true,"requiredFields":["nick"]}, {
+      el: '#valine-comments',
+      path: "/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/",
+      serverURLs: "https://zpj1ajes.api.lncldglobal.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
