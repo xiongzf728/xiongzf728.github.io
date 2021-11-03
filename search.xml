@@ -3,7 +3,7 @@
   <entry>
     <title>CSS 盒模型</title>
     <url>/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<p><img src="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E4%BA%BA%E8%A1%8C%E9%81%93%E4%B8%8A%E7%9A%84%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%EF%BC%89.jpeg" alt="人行道上的共享单车"></p>
+    <content><![CDATA[<p><img src="/2021/06/09/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/%E6%91%84%E5%BD%B1%EF%BC%88%E4%BA%BA%E8%A1%8C%E9%81%93%E4%B8%8A%E7%9A%84%E5%85%B1%E4%BA%AB%E5%8D%95%E8%BD%A6%EF%BC%89.jpeg" alt="人行道上的共享单车"></p>
 <h1 id="我们说盒模型时到底在说啥"><a href="#我们说盒模型时到底在说啥" class="headerlink" title="我们说盒模型时到底在说啥"></a>我们说盒模型时到底在说啥</h1><p>我们常说的盒模型其实有可能是在说一下两者之一：</p>
 <ol>
 <li>块级盒子（Block box）和内联盒子（Inline box）</li>
@@ -99,7 +99,7 @@
   <entry>
     <title>npm 换源？npm 源管理？nrm —— 您的 npm 源反复横跳利器</title>
     <url>/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/</url>
-    <content><![CDATA[<p><img src="https://xiongzf728.github.io/images/%E6%91%84%E5%BD%B1%EF%BC%88%E8%B5%B7%E9%A3%9E%E7%9A%84%E9%A3%9E%E6%9C%BA%EF%BC%89.jpeg" alt="起飞的飞机"></p>
+    <content><![CDATA[<p><img src="/2021/08/24/nrm-%E6%82%A8%E7%9A%84-npm-%E6%BA%90%E7%AE%A1%E5%AE%B6/%E6%91%84%E5%BD%B1%EF%BC%88%E8%B5%B7%E9%A3%9E%E7%9A%84%E9%A3%9E%E6%9C%BA%EF%BC%89.jpeg" alt="起飞的飞机"></p>
 <blockquote>
 <p>- 公司项目用公司的源，自己项目用 npm 源，公司项目和自己项目之间反复横跳</p>
 <p>- <code>npm install</code> 卡死…各个镜像源之间反复横跳</p>
