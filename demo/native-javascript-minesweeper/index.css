@@ -1,0 +1,131 @@
+/*-------------------------*/
+
+.clearfix::after {
+    clear: both;
+    display: block;
+    content: ''
+}
+
+body {
+    background-color: #333;
+}
+
+.main-wrap {
+    margin: 20px auto;
+    width: 301px;
+    height: 371px;
+    background-color: #dddddd;
+    border: 3px solid;
+    border-color: #fff #999 #999 #fff;
+}
+
+.top-wrap {
+    margin: 10px auto;
+    width: 279px;
+    height: 50px;
+    border: 3px solid;
+    border-color: #999 #ccc #ccc #999;
+}
+
+.top-wrap .face {
+    width: 30px;
+    height: 30px;
+    padding: 1px;
+    border: 3px solid;
+    border-color: #fff #999 #999 #fff;
+    background-color: #ccc;
+    margin: 6px auto;
+    line-height: 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.top-wrap .face:hover {
+    border-color: #999 #ccc #ccc #999;
+}
+
+.container {
+    margin: 10px auto;
+    border: 3px solid;
+    border-color: #999 #ccc #ccc #999;
+}
+.container .row {
+    /*margin-left: 5px;*/
+}
+
+.container .row .cell {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fff #999 #999 #fff;
+    text-align: center;
+    float: left;
+    background-color: #ccc;
+    font-weight: bolder;
+    color: #333;
+    font-size: 0px;
+    font-family: '黑体';
+    font-weight: bolder;
+}
+
+.container .row .cell:hover {
+    border-color: #999 #ccc #ccc #999;
+}
+
+.container .row .cell.open {
+    border-color: #999 #ccc #ccc #999;
+    font-size: 16px;
+}
+
+.container .row .cell.flagged {
+    color: #de3836;
+    font-weight: bolder;
+}
+
+.container .row .cell.flagged:hover {
+    border-color: #fff #999 #999 #fff;
+}
+
+.container .row .cell .icon-boom {
+    color: #a03f3f;
+}
+
+.container .row .cell.open.cell-0 {
+    font-size: 0px;
+}
+
+.container .row .cell-1 {
+    color: #0B0AF6;
+}
+
+.container .row .cell-2 {
+    color: #0A7E09;
+}
+
+.container .row .cell-3 {
+    color: #e82d2c;
+}
+
+.container .row .cell-4 {
+    color: #672b6e;
+}
+
+.container .row .cell-5 {
+    color: #a116ab;
+}
+
+.container .row .cell-6 {
+    color: #104807;
+}
+
+.container .row .cell-7 {
+    color: #5b1b67;
+}
+
+.container .row .cell-8 {
+    color: #6d560e;
+}
+
+.container .row .cell span {
+    cursor: default;
+}
+
