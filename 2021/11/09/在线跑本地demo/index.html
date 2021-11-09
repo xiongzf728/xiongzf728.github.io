@@ -20,30 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:&quot;valine&quot;,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null,&quot;activeClass&quot;:&quot;valine&quot;},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="解决办法Hexo 项目内有个 public 文件夹，这个文件夹内的文件结构跟 hexo g 、 hexo d 编译部署到 GitHub 仓库之后的目录结构是一样的 如果在 public 下新建个 demo (名字随便取) 文件夹，把静态项目（假如是 demo.html ）塞进去，就可以通过 username.github.io&#x2F;demo&#x2F;demo.html 直接访问这个静态项目了 如果要究其原因，">
+<meta name="description" content="解决办法Hexo 项目内有个 public 文件夹，这个文件夹内的文件结构跟 hexo g 、 hexo d 编译部署到 GitHub 仓库之后的目录结构是一样的 如果在 public 下新建个 demo (名字随便取) 文件夹，把静态项目（假如是 demo.html ）塞进去，就可以通过 username.github.io&#x2F;demo&#x2F;demo.html 直接访问这个静态项目了 如果要究其原因">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在线跑本地demo">
+<meta property="og:title" content="如何在 GitHub Pages 上搭建 Hexo 博客的同时部署静态项目 &#x2F; 在线跑本地demo">
 <meta property="og:url" content="http://example.com/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/index.html">
-<meta property="og:site_name" content="title">
-<meta property="og:description" content="解决办法Hexo 项目内有个 public 文件夹，这个文件夹内的文件结构跟 hexo g 、 hexo d 编译部署到 GitHub 仓库之后的目录结构是一样的 如果在 public 下新建个 demo (名字随便取) 文件夹，把静态项目（假如是 demo.html ）塞进去，就可以通过 username.github.io&#x2F;demo&#x2F;demo.html 直接访问这个静态项目了 如果要究其原因，">
+<meta property="og:site_name" content="MS-Chicker&#96;s blog">
+<meta property="og:description" content="解决办法Hexo 项目内有个 public 文件夹，这个文件夹内的文件结构跟 hexo g 、 hexo d 编译部署到 GitHub 仓库之后的目录结构是一样的 如果在 public 下新建个 demo (名字随便取) 文件夹，把静态项目（假如是 demo.html ）塞进去，就可以通过 username.github.io&#x2F;demo&#x2F;demo.html 直接访问这个静态项目了 如果要究其原因">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/%E5%A4%A7%E5%85%B4%E6%9C%BA%E5%9C%BA.jpeg">
 <meta property="article:published_time" content="2021-11-09T07:49:11.000Z">
-<meta property="article:modified_time" content="2021-11-09T07:55:27.626Z">
-<meta property="article:author" content="author">
+<meta property="article:modified_time" content="2021-11-09T07:59:23.974Z">
+<meta property="article:author" content="MS-Chiker">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="GitHub Pages">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/%E5%A4%A7%E5%85%B4%E6%9C%BA%E5%9C%BA.jpeg">
 
 
 <link rel="canonical" href="http://example.com/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;11&#x2F;09&#x2F;%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;11&#x2F;09&#x2F;在线跑本地demo&#x2F;&quot;,&quot;title&quot;:&quot;在线跑本地demo&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;11&#x2F;09&#x2F;%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;11&#x2F;09&#x2F;在线跑本地demo&#x2F;&quot;,&quot;title&quot;:&quot;如何在 GitHub Pages 上搭建 Hexo 博客的同时部署静态项目 &#x2F; 在线跑本地demo&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>在线跑本地demo | title</title>
+<title>如何在 GitHub Pages 上搭建 Hexo 博客的同时部署静态项目 / 在线跑本地demo | MS-Chicker`s blog</title>
   
 
 
@@ -72,10 +74,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">title</h1>
+      <h1 class="site-title">MS-Chicker`s blog</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">subtitle</p>
+      <p class="site-subtitle" itemprop="description">心中有火，眼里有光</p>
   </div>
 
   <div class="site-nav-right">
@@ -155,8 +157,8 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">author</p>
-  <div class="site-description" itemprop="description">description</div>
+  <p class="site-author-name" itemprop="name">MS-Chiker</p>
+  <div class="site-description" itemprop="description">技术、影评、高达模型、胡思乱想，一个写字分享记录的地方</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
@@ -218,16 +220,16 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="author">
-      <meta itemprop="description" content="description">
+      <meta itemprop="name" content="MS-Chiker">
+      <meta itemprop="description" content="技术、影评、高达模型、胡思乱想，一个写字分享记录的地方">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="title">
+      <meta itemprop="name" content="MS-Chicker`s blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在线跑本地demo
+          如何在 GitHub Pages 上搭建 Hexo 博客的同时部署静态项目 / 在线跑本地demo
         </h1>
 
         <div class="post-meta-container">
@@ -239,7 +241,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-09 15:49:11 / 修改时间：15:55:27" itemprop="dateCreated datePublished" datetime="2021-11-09T15:49:11+08:00">2021-11-09</time>
+      <time title="创建时间：2021-11-09 15:49:11 / 修改时间：15:59:23" itemprop="dateCreated datePublished" datetime="2021-11-09T15:49:11+08:00">2021-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -256,7 +258,7 @@
     </span>
 
   
-    <span id="/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/" class="post-meta-item leancloud_visitors" data-flag-title="在线跑本地demo" title="阅读次数">
+    <span id="/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/" class="post-meta-item leancloud_visitors" data-flag-title="如何在 GitHub Pages 上搭建 Hexo 博客的同时部署静态项目 / 在线跑本地demo" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -273,9 +275,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>Hexo 项目内有个 <code>public</code> 文件夹，这个文件夹内的文件结构跟 <code>hexo g</code> 、 <code>hexo d</code> 编译部署到 GitHub 仓库之后的目录结构是一样的</p>
+        <p><img src="/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/%E5%A4%A7%E5%85%B4%E6%9C%BA%E5%9C%BA.jpeg" alt="大兴机场"></p>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>Hexo 项目内有个 <code>public</code> 文件夹，这个文件夹内的文件结构跟 <code>hexo g</code> 、 <code>hexo d</code> 编译部署到 GitHub 仓库之后的目录结构是一样的</p>
 <p>如果在 <code>public</code> 下新建个 <code>demo</code> (名字随便取) 文件夹，把静态项目（假如是 <code>demo.html</code> ）塞进去，就可以通过 <code>username.github.io/demo/demo.html</code> 直接访问这个静态项目了</p>
 <p>如果要究其原因，请继续往下看</p>
+<span id="more"></span>
+
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>前几天终于把拖了好久的博客搭出来了</p>
 <blockquote>
 <p>部署： <a target="_blank" rel="noopener" href="https://pages.github.com/"> GitHub Pages </a> （ GitHub 提供的一项服务，通过它可以在线上部署静态项目 ）</p>
@@ -366,7 +371,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">author</span>
+  <span class="author" itemprop="copyrightHolder">MS-Chiker</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

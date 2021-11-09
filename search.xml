@@ -131,11 +131,14 @@
       </tags>
   </entry>
   <entry>
-    <title>在线跑本地demo</title>
+    <title>如何在 GitHub Pages 上搭建 Hexo 博客的同时部署静态项目 / 在线跑本地demo</title>
     <url>/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/</url>
-    <content><![CDATA[<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>Hexo 项目内有个 <code>public</code> 文件夹，这个文件夹内的文件结构跟 <code>hexo g</code> 、 <code>hexo d</code> 编译部署到 GitHub 仓库之后的目录结构是一样的</p>
+    <content><![CDATA[<p><img src="/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/%E5%A4%A7%E5%85%B4%E6%9C%BA%E5%9C%BA.jpeg" alt="大兴机场"></p>
+<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>Hexo 项目内有个 <code>public</code> 文件夹，这个文件夹内的文件结构跟 <code>hexo g</code> 、 <code>hexo d</code> 编译部署到 GitHub 仓库之后的目录结构是一样的</p>
 <p>如果在 <code>public</code> 下新建个 <code>demo</code> (名字随便取) 文件夹，把静态项目（假如是 <code>demo.html</code> ）塞进去，就可以通过 <code>username.github.io/demo/demo.html</code> 直接访问这个静态项目了</p>
 <p>如果要究其原因，请继续往下看</p>
+<span id="more"></span>
+
 <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>前几天终于把拖了好久的博客搭出来了</p>
 <blockquote>
 <p>部署： <a href="https://pages.github.com/"> GitHub Pages </a> （ GitHub 提供的一项服务，通过它可以在线上部署静态项目 ）</p>
