@@ -130,4 +130,63 @@
         <tag>npm</tag>
       </tags>
   </entry>
+  <entry>
+    <title>在线跑本地demo</title>
+    <url>/2021/11/09/%E5%9C%A8%E7%BA%BF%E8%B7%91%E6%9C%AC%E5%9C%B0demo/</url>
+    <content><![CDATA[<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>Hexo 项目内有个 <code>public</code> 文件夹，这个文件夹内的文件结构跟 <code>hexo g</code> 、 <code>hexo d</code> 编译部署到 GitHub 仓库之后的目录结构是一样的</p>
+<p>如果在 <code>public</code> 下新建个 <code>demo</code> (名字随便取) 文件夹，把静态项目（假如是 <code>demo.html</code> ）塞进去，就可以通过 <code>username.github.io/demo/demo.html</code> 直接访问这个静态项目了</p>
+<p>如果要究其原因，请继续往下看</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>前几天终于把拖了好久的博客搭出来了</p>
+<blockquote>
+<p>部署： <a href="https://pages.github.com/"> GitHub Pages </a> （ GitHub 提供的一项服务，通过它可以在线上部署静态项目 ）</p>
+<p>框架： <a href="https://hexo.io/zh-cn/"> Hexo </a> （ 博客内容管理框架，你只负责写 md ，它帮你生成页面，而且有丰富的主题可供选择 ）</p>
+<p>主题： <a href="https://github.com/next-theme/hexo-theme-next"> NexT </a></p>
+</blockquote>
+<p>这套搭配的搭建教程已有很多，这里就不班门弄斧了</p>
+<p>我本来是想把自己写的一些游戏之类的静态项目通过 GitHub Pages 部署到线上，现在博客占住了入口，怎么同时部署博客和这些静态项目呢</p>
+<p>首先来看看 GitHub Pages 是怎么把我们的静态代码部署到线上的</p>
+<h2 id="GitHub-Pages-的原理"><a href="#GitHub-Pages-的原理" class="headerlink" title="GitHub Pages 的原理"></a>GitHub Pages 的原理</h2><p>通常来说，我们想要通过输入网址，现实访问一个静态项目，需要以下条件：</p>
+<ul>
+<li><p>项目代码本身（比如 index.html）</p>
+</li>
+<li><p>存放代码的能够线上访问得到的仓库</p>
+</li>
+<li><p>作为访问入口的域名</p>
+</li>
+</ul>
+<p>GitHub Pages 为我们提供了后面两个条件的支持</p>
+<h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>众所周知 GitHub 本身就是线上代码仓库</p>
+<p>GitHub Pages 和 GitHub 通过约定，在把 GitHub 中名为 <code>username.github.io</code> （ username 是 GitHub 账户的用户名 ）的仓库作为 GitHub Pages 指定仓库</p>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>在 GitHub 上按 GitHub Pages 的要求（ 详见 <a href="https://pages.github.com/">官网</a> ）建立好指定仓库后，就可以通过 <code>username.github.io</code> 来访问该仓库了</p>
+<p>直接访问 <code>username.github.io</code> 的话会相当于访问仓库的根目录，所以如果根目录下有 <code>index.html</code> 是会直接打开的（ Hexo 就是利用了这一点 ）</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo 主要做了以下几件事：</p>
+<ul>
+<li><p>提供博客的结构框架、主题、模板等</p>
+</li>
+<li><p>编译整个博客项目</p>
+</li>
+<li><p>提供一些附属功能的接口，比如流量统计、评论之类的</p>
+</li>
+</ul>
+<p>按照 <a href="https://hexo.io/zh-cn/docs/index.html">官网文档</a> 创建好项目之后，目录结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source (文章的 md 文件)</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<p>创建文章、<code>hexo g</code> 编译生成、<code>hexo d</code> 部署到 GitHub 仓库之后的目录结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── 2021/11/09/hello-world (按年月日分的文章页面)</span><br><span class="line">├── archives（归档页面）</span><br><span class="line">├── css</span><br><span class="line">├── fancybox（静态 js 库）</span><br><span class="line">├── js</span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，二者的目录结构并不相同，也就是说如果我们直接在 hexo 项目里面塞静态项目是不会被编译进生成的文件中的，也就是说在 GitHub 的仓库中不会有，自然也就无法线上访问的到了</p>
+<p>所以现在的问题变成了，找到 hexo 项目中不会被编译的文件夹</p>
+<p>通过测试，hexo 项目在第一次 <code>hexo g</code> 生成之后，项目内会多一个 <code>public</code> 文件夹，这个目录是不会被编译而直接塞进 GitHub 仓库根目录里面的，也就是说我们把静态项目都塞这里面，目的就达成了</p>
+<p>我在里面塞了个原生 js 写的扫雷，感兴趣的可以玩玩：<a href="https://xiongzf728.github.io/demo/native-javascript-minesweeper/">扫雷链接</a></p>
+]]></content>
+      <categories>
+        <category>博客技术</category>
+        <category>GitHub</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>hexo</tag>
+        <tag>GitHub Pages</tag>
+      </tags>
+  </entry>
 </search>
